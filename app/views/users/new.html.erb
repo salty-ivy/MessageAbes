@@ -1,1 +1,65 @@
-<h1 class="subtitle">signup page</h1>
+<%= stylesheet_link_tag "signup" %>
+<div class="hero is-fullheight">
+	<div class="hero-body">
+		<div class="container">
+			<div class="columns is-centered">
+				<div class="column is-5 box">
+					<div class="has-text-centered">
+						<h3 class="title has-text-grey-dark">SIGNUP</h3>
+					</div>
+					<hr>
+					<div class=has-text-centered>
+						<% flash.each do |type, msg| %>
+						  <div>
+						    <%= msg %>
+						  </div>
+						<% end %>
+					</div>
+					<%= form_for(:user, url: signup_path, method: :post, local: true) do |f| %>
+						<div class="field">
+							<%= f.label :username, "Username", class: "label"%>
+							<div class="control has-icons-left">
+								<%= f.text_field :username, class:"input" %>
+								<span class="icon is-small is-left">
+									<i class="fa fa-user"></i>
+								</span>
+							</div>	
+						</div>
+						<div class="field">
+							<%= f.label :email, "email", class: "label"%>
+							<div class="control has-icons-left">
+								<%= f.email_field :email, class:"input" %>
+								<span class="icon is-small is-left">
+									<i class="fa fa-envelope"></i>
+								</span>
+							</div>	
+						</div>
+						<div class="field">
+							<%= f.label :password, "Password", class: "label"%>
+							<div class="control has-icons-left">
+								<%= f.password_field :password, class:"input" %>
+								<span class="icon is-small is-left">
+									<i class="fa fa-lock"></i>
+								</span>
+							</div>	
+						</div>
+						<div class="field">
+							<%= f.label :confirm_password, "Confirm Password", class: "label"%>
+							<div class="control has-icons-left">
+								<%= f.password_field :confirm_password, class:"input" %>
+								<span class="icon is-small is-left">
+									<i class="fa fa-lock"></i>
+								</span>
+							</div>	
+						</div>
+						<div class="field">
+							<div class="control">
+								<%= f.submit "Signup", class:"button is-success is-fullwidth" %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
