@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag "login" %>
+<div class="hero is-fullheight is-info">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-desktop is-12-mobile is-7-tablet is-narrow has-text-centered box">
+          <div>
+            <h1 class="title has-text-grey-dark">LOGIN</h1>
+          </div>
+          <hr class="login-hr">
+          <h3 class="subtitle has-text-grey-dark">Please enter your credentials</h3>
+          <%= form_with(url:login_path, scope: :session, local:true) do |form| %> 
+            <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <%= form.email_field :email, class:"input", placeholder:"Email" %>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control has-icons-left">
+                <%= form.password_field :password, class:"input", placeholder:"Password" %>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <%= form.submit "Login", class:"button is-success is-fullwidth" %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
