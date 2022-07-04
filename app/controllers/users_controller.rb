@@ -10,19 +10,16 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		if params[:user][:password] == params[:user][:confirm_password]
-			@user = User.new(username:params[:user][:username],email:params[:user][:email],password:params[:user][:password])
-			if @user.save
-				flash[:success] = "User #{@user.email} created successfully"
-				redirect_to root_path
-			else
-				flash[:alert] = "signup failed please try again"
-				render :new
-			end
+		
+		@user = User.new(user_param)
+		if @user.save
+			flash[:success] = "User #{@user.email} created successfully"
+			redirect_to login_path
 		else
-			flash[:alert] = "Confirm Password didn't match"
-			# redirect_to signup_path
-			render action: "new"
+			# flash[:alert] = "signup failed please try again"
+			# puts @user.errors.full_messages
+			# flash.now[:notice] = "flash errors"  status: :unprocessable_entity
+			render :new, status: :unprocessable_entity
 		end
 	end
 
@@ -41,7 +38,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_param
-		params.require(:user).permit(:username,:email,:password)
+		params.require(:user).permit(:username,:email,:password,:password_confirmation)
 	end
 
 end

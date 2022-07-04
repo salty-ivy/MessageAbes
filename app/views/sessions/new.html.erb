@@ -9,6 +9,12 @@
           </div>
           <hr class="login-hr">
           <h3 class="subtitle has-text-grey-dark">Please enter your credentials</h3>
+          <div class=has-text-centered>
+            <% flash.each do |type, msg| %>
+                <%= content_tag :div,msg,class:"has-text-#{type}" %>
+            <% end %>
+          </div>
+          <br>
           <%= form_with(url:login_path, scope: :session, local:true) do |form| %> 
             <div class="field">
               <p class="control has-icons-left has-icons-right">

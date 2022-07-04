@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "signup" %>
-<div class="hero is-fullheight">
+<div class="hero is-fullheight is-info">
 	<div class="hero-body">
 		<div class="container">
 			<div class="columns is-centered">
@@ -10,14 +10,19 @@
 					<hr>
 					<div class=has-text-centered>
 						<% flash.each do |type, msg| %>
-						  <div>
+						  <div class="error">
 						    <%= msg %>
 						  </div>
 						<% end %>
 					</div>
-					<%= form_for(:user, url: signup_path, method: :post, local: true) do |f| %>
+					<%= form_with(model: @user,url: signup_path, method: :post) do |f| %>
 						<div class="field">
 							<%= f.label :username, "Username", class: "label"%>
+							<%@user.errors.full_messages_for(:username).each do |message| %>
+								<div class="error">
+									* <%=  message %>
+								</div>
+							<% end %>
 							<div class="control has-icons-left">
 								<%= f.text_field :username, class:"input" %>
 								<span class="icon is-small is-left">
@@ -26,7 +31,10 @@
 							</div>	
 						</div>
 						<div class="field">
-							<%= f.label :email, "email", class: "label"%>
+							<%= f.label :emal, "email", class: "label"%>
+							<%@user.errors.full_messages_for(:email).each do |message| %>
+								<div class="error">* <%= message %></div>
+							<% end %>
 							<div class="control has-icons-left">
 								<%= f.email_field :email, class:"input" %>
 								<span class="icon is-small is-left">
@@ -36,6 +44,9 @@
 						</div>
 						<div class="field">
 							<%= f.label :password, "Password", class: "label"%>
+							<%@user.errors.full_messages_for(:password).each do |message| %>
+								<div class="error">* <%= message %></div>
+							<% end %>
 							<div class="control has-icons-left">
 								<%= f.password_field :password, class:"input" %>
 								<span class="icon is-small is-left">
@@ -44,9 +55,12 @@
 							</div>	
 						</div>
 						<div class="field">
-							<%= f.label :confirm_password, "Confirm Password", class: "label"%>
+							<%= f.label :password_confirmation, "Confirm Password", class: "label"%>
+							<%@user.errors.full_messages_for(:password_confirmation).each do |message| %>
+								<div class="error">* <%= message %></div>
+							<% end %>
 							<div class="control has-icons-left">
-								<%= f.password_field :confirm_password, class:"input" %>
+								<%= f.password_field :password_confirmation, class:"input" %>
 								<span class="icon is-small is-left">
 									<i class="fa fa-lock"></i>
 								</span>

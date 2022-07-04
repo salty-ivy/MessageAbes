@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
 			flash[:success] = "login successful"
 			redirect_back_or root_path
 		else
-			flash[:now] = "login failed"
-			render :new
+			flash.now[:danger] = "login failed, incorrect credential"
+			render :new, status: :unprocessable_entity
 		end
 	end
 
