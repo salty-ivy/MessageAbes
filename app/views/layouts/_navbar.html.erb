@@ -3,14 +3,14 @@
     <%= link_to root_path, class:"navbar-item" do %>
       <h2 class="title has-text-white-bis">MessageAbes</h2>
     <% end %>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger" id="burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="nav-links" class="navbar-menu">
     <div class="navbar-start">
       <%=link_to "Chatroom", root_path, class:"navbar-item" %>
       <%= link_to "About", about_path, class:"navbar-item" %>

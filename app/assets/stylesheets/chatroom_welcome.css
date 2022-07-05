@@ -7,7 +7,19 @@
 }
 .down{
   /*background: black;*/
-  margin-top:390px;
+  margin-top:0px;
   padding: 5px;
-  padding-top: 5px;
+  padding-top: 10px;
+}
+.fit{
+  height: 450px;
+  overflow: scroll;
+}
+
+.shadow{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.stretch{
+  width: 650px;
 }

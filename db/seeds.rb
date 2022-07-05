@@ -33,7 +33,14 @@ User.create(username:"mark",email:"mark@example.com",password:"testing321")
 
 ## messages #####
 user = User.first
+user2 = User.find_by(email: "lakshita@example.com")
 Message.create(body:"my message",user:user)
 Message.create(body:"my 2",user:user)
 Message.create(body:"my name is aman pandey guy",user:user)
 Message.create(body:"i am the creator",user:user)
+Message.create(body:"hi aman",user:user2)
+Message.create(body:"it's me laki",user:user2)
+Message.create(body:"how you doing",user:user2)
+Message.create(body:"you good?",user:user2)
+
+

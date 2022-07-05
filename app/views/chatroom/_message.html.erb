@@ -1,0 +1,12 @@
+<% @messages.each do |msg| %>
+  <article class="message is-small is-dark shadow">
+    <div class="message-header">
+      <%= link_to "#" do %>
+        <p><%= msg.user.email %> | <%= msg.user.username %></p>
+      <% end %>
+    </div>
+    <div class="message-body">
+      <%= msg.body %>
+    </div>
+  </article>
+<% end %>

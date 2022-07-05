@@ -7,18 +7,30 @@
     <div class="column is-8">
       <div class="card chatbox">
         <div class="card-content">
-            <div class="content">
-              Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+            <div class="content box fit">
+              <%= render "chatroom/message" %>
             </div>
          </div>
          <footer class="card-footer down">
-            <input class="input is-small is-rounded" type="email" placeholder="Enter Message">
-            <button class="button is-info is-small ml-2 is-rounded">
-              <span class="icon is-small is-left">
-                <i class="mdi mdi-chat"></i>
-              </span>
-              <span>Send</span>
-            </button>
+            <%= form_with(model:@message, scope: :messages, url:message_path,method: :post) do |f| %>
+              <div class="is-inline-flex">
+                <div class="field">
+                  <div class="control">
+                    <%= f.text_field :body, class: "input is-small is-rounded stretch", placeholder: "Enter message" %>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <button class="button is-info is-small ml-2 is-rounded">
+                      <span class="icon is-small is-left">
+                        <i class="mdi mdi-chat"></i>
+                      </span>
+                      <span>Send</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            <% end %>
         </footer>
       </div>
     </div>
@@ -33,3 +45,5 @@
     </div>
   </div>
 </div>
+<%= javascript_include_tag "chatroom_home", "data-turbo-track" => "reload" %>
+
