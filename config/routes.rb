@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   post "message/", to:"messages#create"
   # get "test/", to:"users#test"
 
+  mount ActionCable.server, at:'/cable'
+
 end

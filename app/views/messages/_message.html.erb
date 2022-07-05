@@ -1,0 +1,11 @@
+
+<article class="message is-small is-dark shadow">
+  <div class="message-header">
+    <%= link_to "#" do %>
+      <p><%= message.user.email %> | <%= message.user.username %></p>
+    <% end %>
+  </div>
+  <div class="message-body">
+    <%= message.body %>
+  </div>
+</article>

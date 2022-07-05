@@ -7,8 +7,8 @@
     <div class="column is-8">
       <div class="card chatbox">
         <div class="card-content">
-            <div class="content box fit">
-              <%= render "chatroom/message" %>
+            <div class="content box fit" id="message-container">
+              <%= render @messages %>
             </div>
          </div>
          <footer class="card-footer down">
@@ -45,5 +45,4 @@
     </div>
   </div>
 </div>
-<%= javascript_include_tag "chatroom_home", "data-turbo-track" => "reload" %>
 
